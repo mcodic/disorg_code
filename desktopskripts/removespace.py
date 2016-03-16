@@ -1,26 +1,22 @@
 import os
+import operator as o
 
-listdiry = os.listdir("./")
+formatGood = map( lambda sa: sa.lower().replace(' ', ''), os.listdir( "./" ) )
+map( (lambda oldy, newy: os.rename( oldy, newy )), os.listdir( "./" ), formatGood )
+print "\n\n   White space removed."
 
-def switching(cc):
-	slop = ""
-	for ap in cc.lower():
-		if ap == " ": 
-			ap = "."
-		slop = slop + ap
-	return slop
+#def switching( cc ): 
+    # slop = ""
+    # for ap in cc .lower( ) :
+    #   if  o.eq( ap, " " ) : ap =  "."
+    #   slop = slop + ap
+    # return slop
 
-formatGood = map(lambda sa:switching(sa), listdiry)
-map((lambda tups: os.rename(tups[0], tups[1])), zip(listdiry, formatGood))
+#listdiry = os.listdir( "./" )
+#formatGood = map( lambda sa: switching( sa ), os.listdir( "./" ) )
+# map( (lambda tups: os.rename( tups[0], tups[1] ))
+#   , zip( listdiry, formatGood ) )
 
 
 
-# for ee in range(len(listdiry))
-# 	os.rename(listdiry[ee], map(switching(), listdiry))
 
-# switchReduce = lambda sdt: reduce((lambda ar,vd: ar+vd), lambda sdt: sdt.lower())
-
-# slop = ""
-# lambda wwq: [(lambda tt: slop+=tt) for dd in wwq.lower() if dd == " ": dd="."]
-
-#map((lambda tups: os.rename(tups[0], tups[1])), zip(listdiry, map(lambda sa:switching(sa), listdiry)))
